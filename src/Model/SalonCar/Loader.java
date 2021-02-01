@@ -1,0 +1,29 @@
+package Model.SalonCar;
+
+public class Loader {
+    public static void main(String[] args) {
+        CarSalon topAuto = new TopAuto(300_000);
+        topAuto.report();
+        /*System.out.println("Car bought, price: "
+                + topAuto.buyCar(new PassengerCar(1999, 3, 11)));
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new PassengerCar(2002, 10, 13)));
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new PassengerCar(2005, 8, 2)));
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new CargoCar(1994, 2, 22)));
+        topAuto.report();*/
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new PassengerCar()));
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new PassengerCar()));
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new PassengerCar()));
+        System.out.println("Car bought, price: "
+                + topAuto.buyCar(new CargoCar()));
+        topAuto.report();
+        System.out.println("Car sold, price: "
+                + topAuto.sellCar(3));
+        topAuto.report();
+    }
+}
