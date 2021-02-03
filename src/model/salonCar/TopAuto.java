@@ -1,0 +1,74 @@
+package model.salonCar;
+
+public class TopAuto implements CarSalon {
+    private final AbstractCar[] parkingLot = new AbstractCar[8];
+    private long salonBalance;
+
+    public int getParkingNumber(AbstractCar[] parkingLot)
+    {
+        int index = -1;
+        for (int i = 0; i < parkingLot.length; i++)
+        {
+            if (parkingLot[i] == null)
+            {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1)
+        {
+            throw new IllegalArgumentException("No free parking space!");
+        }
+        return index;
+    }
+
+    public TopAuto(long storeBalance)
+    {
+        this.salonBalance = storeBalance;
+    }
+
+    @Override
+    public int sellCar(int parkingNumber) {
+        int carPrice;
+        if (parkingLot.length >= parkingNumber && parkingLot[parkingNumber] != null)
+        {
+            carPrice = parkingLot[parkingNumber].getPrice();
+            carPrice *= 1.20;
+            salonBalance += carPrice;
+            parkingLot[parkingNumber] = null;
+        }
+        else
+        {
+            throw new IllegalArgumentException("No available car!");
+        }
+        return carPrice;
+    }
+
+    @Override
+    public int buyCar(AbstractCar car) {
+        int carPrice = car.getPrice();
+        if (salonBalance >= carPrice)
+        {
+            parkingLot[getParkingNumber(parkingLot)] = car;
+            salonBalance -= carPrice;
+            return carPrice;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    @Override
+    public void report() {
+        for (int i = 0; i < parkingLot.length; i++)
+        {
+            if (parkingLot[i]!= null)
+            {
+                System.out.println("Parking lot number: " + (i + 1) + ". Manufacturer: " + parkingLot[i].manufacturer
+                        + ". Year of issue: " + parkingLot[i].dateOfIssue + ". Technical state: " + parkingLot[i].techState);
+            }
+        }
+        System.out.println("Salon's balance: " + salonBalance);
+    }
+}
