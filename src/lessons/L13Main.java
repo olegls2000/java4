@@ -1,6 +1,10 @@
 package lessons;
 
+import model.Circle;
+import model.Triangle;
+
 import java.io.*;
+import java.lang.reflect.Method;
 import java.net.SocketException;
 
 public class L13Main {
@@ -52,6 +56,24 @@ public class L13Main {
         }
 
         System.out.println("ggg");
+
+
+
+        //Reflection:
+        Object obj = new Circle();
+
+
+
+
+
+
+
+
+        final Class<?> aClass = obj.getClass();
+        System.out.println(aClass.getName());
+        final Method[] methods = aClass.getMethods();
+        System.out.println(aClass.getMethods().length);
+
     }
 
     static void someMeth() {
