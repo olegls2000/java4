@@ -1,7 +1,6 @@
 package utils;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public final class ReflectionUtils {
@@ -25,9 +24,24 @@ public final class ReflectionUtils {
     }
 
     public static void callSecretMethod(Object obj) throws Exception {
-        //.....
-
-        Method mm = null;
-        mm.invoke(obj);
+        Class clazz = obj.getClass();
+        // get all methods
+        Method[] methods = clazz.getDeclaredMethods();
+        // find method with a secret
+        Method secretMethod = null;
+        for (Method method : methods) {
+            //"someSecretMethod"  or "secretMethod"
+            if (method.getName().toLowerCase().contains("secret")) {
+                secretMethod = method;
+                break;
+            }
+        }
+        // invoke method or say that method is absent
+        if (secretMethod == null) {
+            System.out.println("No Secret Methods!!!");
+        } else {
+            secretMethod.setAccessible(true);
+            secretMethod.invoke(obj);
+        }
     }
 }
