@@ -468,4 +468,8 @@ public class MyUtils {
 
         return result;
     }
+    public static String getRandomString(String[] array) {
+        int randomIndex = getRandomFromRange(0, array.length);
+        return array[randomIndex];
+    }
 }
