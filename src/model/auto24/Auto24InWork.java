@@ -39,8 +39,12 @@ public class Auto24InWork {
         }
         topAuto.report();
 
-        System.out.println("Car sold, price: "
-                + topAuto.sellCar(3));
+        try {
+            System.out.println("Car sold, price: "
+                    + topAuto.sellCar(3));
+        } catch (AutosalonNoFreePlaceException e) {
+
+        }
 
         topAuto.report();
     }
