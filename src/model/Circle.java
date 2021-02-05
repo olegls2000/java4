@@ -35,8 +35,8 @@ public class Circle extends AbstractShape implements Shape {
                 ", area = " + calculateArea());
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    //@Override
+    public boolean equals(Object obj, Object obj1) {
         Circle cr = (Circle) obj;
         return this.side == cr.getSide();
     }

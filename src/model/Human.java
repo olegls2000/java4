@@ -41,4 +41,8 @@ public class Human {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    private void secretMethod(){
+        System.out.println("Hello From Secret!!!");
+    }
 }
