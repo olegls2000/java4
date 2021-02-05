@@ -23,15 +23,21 @@ public class Auto24 implements CarSalon {
     }
 
     @Override
-    public int sellCar(int parkingNumber) {
+    public int sellCar(int parkingNumber) throws AutosalonNoFreePlaceException {
         int carPrice;
-        if (parkingLot.length >= parkingNumber && parkingLot[parkingNumber] != null) {
+        if (parkingLot.length >= parkingNumber && parkingLot[parkingNumber] != null)
+        {
             carPrice = parkingLot[parkingNumber].getPrice();
             carPrice *= 1.20;
             salonBalance += carPrice;
-            parkingLot[parkingNumber] = null;}
-        return carPrice;
+            parkingLot[parkingNumber] = null;
         }
+        else
+        {
+            throw new AutosalonNoFreePlaceException("No car for sale!");
+        }
+        return carPrice;
+    }
 
 
 
