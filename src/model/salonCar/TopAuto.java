@@ -1,11 +1,15 @@
 package model.salonCar;
 
+import exception.UnavailableCar;
+import exception.UnavailableParkingSpace;
+import exception.ZeroBalance;
+
 public class TopAuto implements CarSalon {
     private final AbstractCar[] parkingLot = new AbstractCar[8];
     private long salonBalance;
 
     public int getParkingNumber(AbstractCar[] parkingLot)
-    {
+            throws UnavailableParkingSpace {
         int index = -1;
         for (int i = 0; i < parkingLot.length; i++)
         {
@@ -17,7 +21,7 @@ public class TopAuto implements CarSalon {
         }
         if (index == -1)
         {
-            throw new IllegalArgumentException("No free parking space!");
+            throw new UnavailableParkingSpace("No available parking space!");
         }
         return index;
     }
@@ -28,7 +32,8 @@ public class TopAuto implements CarSalon {
     }
 
     @Override
-    public int sellCar(int parkingNumber) {
+    public int sellCar(int parkingNumber)
+            throws UnavailableCar {
         int carPrice;
         if (parkingLot.length >= parkingNumber && parkingLot[parkingNumber] != null)
         {
@@ -39,13 +44,14 @@ public class TopAuto implements CarSalon {
         }
         else
         {
-            throw new IllegalArgumentException("No available car!");
+            throw new UnavailableCar("No available car under this parking space!");
         }
         return carPrice;
     }
 
     @Override
-    public int buyCar(AbstractCar car) {
+    public int buyCar(AbstractCar car)
+            throws ZeroBalance, UnavailableParkingSpace {
         int carPrice = car.getPrice();
         if (salonBalance >= carPrice)
         {
@@ -55,7 +61,7 @@ public class TopAuto implements CarSalon {
         }
         else
         {
-            return 0;
+            throw new ZeroBalance("Not enough balance for purchase!");
         }
     }
 

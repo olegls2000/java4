@@ -1,16 +1,17 @@
 package homework;
 
+import exception.InvalidTriangleException;
 import model.geoShapes.Point;
 import model.geoShapes.Triangle;
 
 public class L6Homework {
-    public static void main(String[] args) {
-        Point a = new Point(5, -3);
+    public static void main(String[] args) throws InvalidTriangleException {
+        /*Point a = new Point(5, -3);
         Point b = new Point(6, -2);
-        Point c = new Point(-7, -4);
-        /*Point a = new Point(1, 1);
+        Point c = new Point(-7, -4);*/
+        Point a = new Point(1, 1);
         Point b = new Point(1, 1);
-        Point c = new Point(2, 2);*/
+        Point c = new Point(2, 2);
 
         System.out.println("x1 = " + a.getX() + ", y1 = " + a.getY()
                 + "\nx2 = " + b.getX() + ", y2 = " + b.getY()

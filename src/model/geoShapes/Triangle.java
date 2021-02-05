@@ -1,5 +1,7 @@
 package model.geoShapes;
 
+import exception.InvalidTriangleException;
+
 import java.util.Objects;
 
 public class Triangle {
@@ -39,6 +41,7 @@ public class Triangle {
     }
 
     public double getTrianglePerimeter()
+            throws InvalidTriangleException
     {
         double ab = Math.abs(Math.sqrt(Math.pow(a.getX() - b.getX(), 2)
                 + Math.pow(a.getY() - b.getY(), 2)));
@@ -53,14 +56,16 @@ public class Triangle {
     }
 
     public void isValidTriangle(double ab, double bc, double ca)
+            throws InvalidTriangleException
     {
         boolean validTriangle = ab + bc > ca
                 && bc + ca > ab
                 && ca + ab > bc;
         if (!validTriangle)
         {
-            throw new IllegalArgumentException
-                    ("Impossible triangle to create! Review sides!");
+            /*throw new IllegalArgumentException
+                    ("Impossible triangle to create! Review sides!");*/
+            throw new InvalidTriangleException("Impossible triangle!");
         }
     }
 

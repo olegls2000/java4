@@ -1,7 +1,8 @@
 package model.salonCar;
 
 public class Loader {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+            throws Exception {
         CarSalon topAuto = new TopAuto(300_000);
         topAuto.report();
         /*System.out.println("Car bought, price: "
@@ -23,7 +24,7 @@ public class Loader {
                 + topAuto.buyCar(new CargoCar()));
         topAuto.report();
         System.out.println("Car sold, price: "
-                + topAuto.sellCar(3));
+                + topAuto.sellCar(9));
         topAuto.report();
     }
 }
