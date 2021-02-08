@@ -1,11 +1,11 @@
 package model.salonCar;
 
-import exception.UnavailableCar;
-import exception.UnavailableParkingSpace;
-import exception.ZeroBalance;
+import exception.UnavailableCarException;
+import exception.UnavailableParkingSpaceException;
+import exception.ZeroBalanceException;
 
 public interface CarSalon {
-    int sellCar(int parkingNumber) throws UnavailableParkingSpace, UnavailableCar;
-    int buyCar(AbstractCar car) throws ZeroBalance, UnavailableParkingSpace;
+    int sellCar(int parkingNumber) throws UnavailableCarException;
+    int buyCar(AbstractCar car) throws ZeroBalanceException, UnavailableParkingSpaceException;
     void report();
 }

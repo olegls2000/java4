@@ -1,15 +1,15 @@
 package model.salonCar;
 
-import exception.UnavailableCar;
-import exception.UnavailableParkingSpace;
-import exception.ZeroBalance;
+import exception.UnavailableCarException;
+import exception.UnavailableParkingSpaceException;
+import exception.ZeroBalanceException;
 
 public class TopAuto implements CarSalon {
     private final AbstractCar[] parkingLot = new AbstractCar[8];
     private long salonBalance;
 
     public int getParkingNumber(AbstractCar[] parkingLot)
-            throws UnavailableParkingSpace {
+            throws UnavailableParkingSpaceException {
         int index = -1;
         for (int i = 0; i < parkingLot.length; i++)
         {
@@ -21,7 +21,7 @@ public class TopAuto implements CarSalon {
         }
         if (index == -1)
         {
-            throw new UnavailableParkingSpace("No available parking space!");
+            throw new UnavailableParkingSpaceException("No available parking space!");
         }
         return index;
     }
@@ -33,7 +33,7 @@ public class TopAuto implements CarSalon {
 
     @Override
     public int sellCar(int parkingNumber)
-            throws UnavailableCar {
+            throws UnavailableCarException {
         int carPrice;
         if (parkingLot.length >= parkingNumber && parkingLot[parkingNumber] != null)
         {
@@ -44,14 +44,14 @@ public class TopAuto implements CarSalon {
         }
         else
         {
-            throw new UnavailableCar("No available car under this parking space!");
+            throw new UnavailableCarException("No available car under this parking space!");
         }
         return carPrice;
     }
 
     @Override
     public int buyCar(AbstractCar car)
-            throws ZeroBalance, UnavailableParkingSpace {
+            throws ZeroBalanceException, UnavailableParkingSpaceException {
         int carPrice = car.getPrice();
         if (salonBalance >= carPrice)
         {
@@ -61,7 +61,7 @@ public class TopAuto implements CarSalon {
         }
         else
         {
-            throw new ZeroBalance("Not enough balance for purchase!");
+            throw new ZeroBalanceException("Not enough balance for purchase!");
         }
     }
 

@@ -13,6 +13,13 @@ public class MyUtils {
         return result;
     }
 
+    public static <N extends Number> double getRandomFromRangeG(int from, int till) {
+        double result = (int) (Math.random() * (till - from)) + from;
+        System.out.println("Random for the interval: [" + from + ", " + till + ") -> " + result);
+
+        return result;
+    }
+
     public static int getRandomFromRangeY(int from, int till) {
         int result = (int) (Math.random() * (till - from)) + from;
         System.out.println("Random for the interval: [" + from + ", " + till + ") -> " + result);

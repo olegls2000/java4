@@ -5,6 +5,11 @@ public class Human {
     private String lastName;
     private String gender;
 
+    public Human()
+    {
+
+    }
+
     public Human(String firstName, String lastName,
                  String gender) {
         this.firstName = firstName;
@@ -40,5 +45,10 @@ public class Human {
     public void setLastName(String lastName)
     {
         this.lastName = lastName;
+    }
+
+    private void secretMethod()
+    {
+        System.out.println("Hello from Secret method!");
     }
 }
