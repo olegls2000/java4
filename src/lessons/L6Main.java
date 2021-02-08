@@ -1,5 +1,6 @@
 package lessons;
 
+import exception.InvalidTriangleException;
 import model.*;
 
 import static java.lang.Math.PI;
@@ -54,17 +55,28 @@ public class L6Main {
         String fn = human.getFirstName();
         human.setFirstName("newFn");
         //System.err.println("System.err.print");
-        SimpleTriangle triangle1 = new SimpleTriangle(5, 6, 9);
-        triangle1.setA(10);
-        triangle1.setB(9);
-        triangle1.setC(7);
+        try {
+            SimpleTriangle triangle1 = new SimpleTriangle(5, 6, 9);
+            triangle1.setA(10);
+            triangle1.setB(9);
+            triangle1.setC(7);
+        }catch (InvalidTriangleException exception) {
+            //System.out.println(exception.getTriangleInfo());
+            exception.printStackTrace();
+        }
 
-        System.out.println(triangle1);
-        SimpleTriangle[] triangles = {new SimpleTriangle(5, 6, 9),
-                new SimpleTriangle(5, 6, 9),
-                new SimpleTriangle(5, 8, 9),
-                new SimpleTriangle(9, 6, 9)
-        };
+
+        SimpleTriangle[] triangles = new SimpleTriangle[0];
+        try {
+            triangles = new SimpleTriangle[]{new SimpleTriangle(5, 6, 9),
+                    new SimpleTriangle(5, 6, 9),
+                    new SimpleTriangle(5, 8, 9),
+                    new SimpleTriangle(9, 6, 9)
+
+            };
+        } catch (InvalidTriangleException exception) {
+            System.out.println(exception.getTriangleInfo());
+        }
 
         SimpleTriangle smallestPerimTr = getSmalletPerimTriangle(triangles);
         System.out.println(smallestPerimTr.getPerim());
