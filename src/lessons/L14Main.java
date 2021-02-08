@@ -13,7 +13,7 @@ import static utils.ReflectionUtils.callSecretMethod;
 import static utils.ReflectionUtils.getDefaultConstructor;
 
 //Reflection:
-public class Lesson14Main {
+public class L14Main {
     public static void main(String[] args) throws Exception {
         Object obj = new Circle();
 
@@ -67,6 +67,8 @@ public class Lesson14Main {
 
         return results;
     }
+
+
 
 
     static List<Circle> generateCircles(int n) {

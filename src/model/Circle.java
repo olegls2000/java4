@@ -1,5 +1,7 @@
 package model;
 
+
+
 public class Circle extends AbstractShape implements Shape {
 
     @Override
@@ -17,8 +19,6 @@ public class Circle extends AbstractShape implements Shape {
                 "side=" + side +
                 '}';
     }
-
-
     @Override
     public double calculateArea() {
         return 4 * Math.PI * side * side;

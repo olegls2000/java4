@@ -1,10 +1,15 @@
 package model;
 
+import annotation.NumberCheck;
+
 import java.time.*;
 import java.util.Date;
 
 public abstract class AbstractCar {
-    private int year; //2010
+
+    @NumberCheck(min = 1990, max = 2019)
+    protected int year; //2010
+
     protected LocalDate manufactureYear;
 
     //private Date manufactureDate; //before 1.8
@@ -17,4 +22,12 @@ public abstract class AbstractCar {
     private ZonedDateTime zonedDateTime = ZonedDateTime.of(localDateTimeX, ZoneId.systemDefault());*/
 
     public abstract int getPrice();
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setManufactureYear(LocalDate manufactureYear) {
+        this.manufactureYear = manufactureYear;
+    }
 }
