@@ -1,5 +1,6 @@
 package model.salonCar;
 
+import annotation.Profiler;
 import exception.UnavailableCarException;
 import exception.UnavailableParkingSpaceException;
 import exception.ZeroBalanceException;
@@ -66,6 +67,7 @@ public class TopAuto implements CarSalon {
     }
 
     @Override
+    @Profiler
     public void report() {
         for (int i = 0; i < parkingLot.length; i++)
         {

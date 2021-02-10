@@ -1,5 +1,7 @@
 package model.salonCar;
 
+import annotation.NumberCheck;
+
 import java.util.Calendar;
 
 import static homework.L2Homework.getRandomNumberFromRange;
@@ -10,6 +12,7 @@ public abstract class AbstractCar {
     protected int dateOfIssue;
     protected int techState;
     protected String manufacturer;
+    @NumberCheck(min = 1990, max = 2019)
     protected int currentYear = Calendar.getInstance().get(Calendar.YEAR);
     /*protected int year;
     protected int month;

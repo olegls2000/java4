@@ -1,9 +1,13 @@
 package model.geoShapes;
 
+import annotation.NumberCheck;
+
 import static utils.MyUtils.getRandomFromRange;
 
 public abstract class AbstractShape {
-    protected int side; // --> for extended classes
+
+    @NumberCheck(min = 0, max = 10_000)
+    protected int side; // --> protected for extended classes
 
     public AbstractShape()
     {
