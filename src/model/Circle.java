@@ -1,7 +1,6 @@
 package model;
 
 
-
 public class Circle extends AbstractShape implements Shape {
 
     @Override
@@ -19,6 +18,7 @@ public class Circle extends AbstractShape implements Shape {
                 "side=" + side +
                 '}';
     }
+
     @Override
     public double calculateArea() {
         return 4 * Math.PI * side * side;
@@ -35,9 +35,14 @@ public class Circle extends AbstractShape implements Shape {
                 ", area = " + calculateArea());
     }
 
-    //@Override
-    public boolean equals(Object obj, Object obj1) {
-        Circle cr = (Circle) obj;
-        return this.side == cr.getSide();
+    @Override
+    public boolean equals(Object obj) {
+        Circle circle = (Circle) obj;
+        return circle.getSide() == this.side;
+    }
+
+    @Override
+    public int hashCode() {
+        return side;
     }
 }

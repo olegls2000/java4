@@ -3,6 +3,10 @@ package utils;
 import model.AbstractWorker;
 import model.Shape;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class MyUtils {
 
     public static final int DAYS_IN_WEEK = 7;
@@ -32,9 +36,13 @@ public class MyUtils {
         return result;
     }
 
-
-
-
+    public static List<Integer> generateList(int size, int from, int till) {
+        List<Integer> result = new LinkedList<>();
+        for (int i = 0; i < size; i++) {
+            result.add(getRandomFromRange(from, till));
+        }
+        return result;
+    }
 
     public static int getRandomFromRangeX(int from, int till) {
         int result = (int) (Math.random() * (till - from)) + from;
