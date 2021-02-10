@@ -51,6 +51,7 @@ public class TopAuto implements CarSalon {
     }
 
     @Override
+    @Profiler
     public int buyCar(AbstractCar car)
             throws ZeroBalanceException, UnavailableParkingSpaceException {
         int carPrice = car.getPrice();
