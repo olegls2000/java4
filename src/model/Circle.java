@@ -36,8 +36,19 @@ public class Circle extends AbstractShape implements Shape {
     }
 
     @Override
+    public int hashCode () {
+        return side;
+    }
+
+
+    @Override
     public boolean equals(Object obj) {
-        Circle cr = (Circle) obj;
-        return this.side == cr.getSide();
+        Circle circle = (Circle) obj;
+        return circle.getSide() == this.side;
+
+
+
+
+
     }
 }
