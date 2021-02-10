@@ -1,8 +1,11 @@
 package model;
 
 import static utils.MyUtils.getRandomFromRange;
+import annotation.NumberCheck;
 
 public abstract class AbstractShape {
+
+    @NumberCheck(min = 0,max = 10000)
     protected int side;
 
     public AbstractShape() {
