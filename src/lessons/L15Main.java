@@ -27,6 +27,6 @@ public class L15Main {
 
     private static void processSmth() {
         NumberCheckProcessor processor = NumberCheckProcessor.getInstance();
-        processor.process(null);
+        //processor.process(null);
     }
 }
