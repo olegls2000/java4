@@ -4,7 +4,19 @@ import annotation.NumberCheck;
 
 import java.lang.reflect.Field;
 
-public class NumberCheckProcessor {
+public final class NumberCheckProcessor {
+
+    private NumberCheckProcessor() {
+    }
+
+    private static NumberCheckProcessor instance;
+
+    public static final NumberCheckProcessor getInstance() {
+        if (instance == null) {
+            instance = new NumberCheckProcessor();
+        }
+        return instance;
+    }
 
     public void process(Object objectToProcess) {
         final Class<?> clazz = objectToProcess.getClass();

@@ -8,7 +8,8 @@ public class L15Main {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
-        NumberCheckProcessor numberCheckProcessor = new NumberCheckProcessor();
+        NumberCheckProcessor numberCheckProcessor = NumberCheckProcessor.getInstance();
+
 
         Circle circle = new Circle();
         //circle.setSide(0);
@@ -21,5 +22,11 @@ public class L15Main {
         long stop = System.currentTimeMillis();
         long duration = stop - start;
         System.out.println("Time = " + duration + " msec");
+        processSmth();
+    }
+
+    private static void processSmth() {
+        NumberCheckProcessor processor = NumberCheckProcessor.getInstance();
+        processor.process(null);
     }
 }
