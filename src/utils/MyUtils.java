@@ -13,7 +13,7 @@ public class MyUtils {
     }
     public static int getRandomFromRange(int from, int till) {
         int result = (int) (Math.random() * (till - from)) + from;
-        System.out.println("Random for the interval: [" + from + ", " + till + ") -> " + result);
+       // System.out.println("Random for the interval: [" + from + ", " + till + ") -> " + result);
 
         return result;
     }
