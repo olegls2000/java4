@@ -1,7 +1,5 @@
 package Lessons;
 
-import Lessons.L2Main;
-
 public class L3Main {
     public static void main(String[] args) {
         int random = L2Main.getRandomFromRange(1, 20);

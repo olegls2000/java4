@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class SimpleTriangle {
     private int a;
@@ -48,4 +48,6 @@ public class SimpleTriangle {
             throw new IllegalArgumentException("Impossible to create Triangle! Review sides!");
         }
     }
+
+
 }

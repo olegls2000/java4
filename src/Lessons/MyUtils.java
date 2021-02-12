@@ -1,5 +1,6 @@
 package Lessons;
-
+import java.util.List;
+import java.util.ArrayList;
 public  class MyUtils {
     public static final int DAYS_IN_WEEK = 7;
 
@@ -22,6 +23,15 @@ public  class MyUtils {
         return items[randomIndex];
 
 
+    }
+
+
+    public static List<Integer> generateList(int size, int from, int till) {
+        List<Integer> result = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            result.add(getRandomFromRange(from, till));
+        }
+        return result;
+    }
 
 }
-    }

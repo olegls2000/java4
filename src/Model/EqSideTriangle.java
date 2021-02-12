@@ -1,6 +1,9 @@
-package Model;
+package model;
 
-    public class EqSideTriangle extends AbstractShape {
+import annotation.NumberCheck;
+
+public class EqSideTriangle extends AbstractShape {
+
         @Override
         public double getPerimetr() {
             return 3 * side;

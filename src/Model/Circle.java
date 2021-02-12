@@ -1,4 +1,4 @@
-package Model;
+package model;
 
     public class Circle extends AbstractShape {
 
@@ -16,6 +16,11 @@ package Model;
             return "Circle{" +
                     "side=" + side +
                     '}';
+        }
+
+        @Override
+        public int hashCode() {
+            return side;
         }
     }
 
