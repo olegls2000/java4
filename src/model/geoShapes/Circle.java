@@ -18,5 +18,17 @@ public class Circle extends AbstractShape {
     {
         return "Circle{" + "side=" + side + "}";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Circle circle = (Circle) obj;
+        return super.getSide() == this.side;
+    }
+
+    @Override
+    public int hashCode() {
+        return side;
+    }
+
 }
 // abstract --> ought to happen

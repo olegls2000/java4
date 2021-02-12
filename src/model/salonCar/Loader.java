@@ -17,7 +17,7 @@ public class Loader {
                 + topAuto.buyCar(new CargoCar(1994, 2, 22)));
         topAuto.report();*/
         ProfilerProcessor profilerProcessor = ProfilerProcessor.getInstance();
-        profilerProcessor.process(topAuto);
+        profilerProcessor.process(topAuto); // ADD ADDITIONAL CAR
 
         System.out.println("Car bought, price: "
                 + topAuto.buyCar(new PassengerCar()));
