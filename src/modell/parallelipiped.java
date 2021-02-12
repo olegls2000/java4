@@ -1,4 +1,4 @@
-package Modell;
+package modell;
 import static Lessons.MyUtils.getRandomFromRange;
 public class parallelipiped implements WithVolume, WithSurfaceArea {
     private int l;

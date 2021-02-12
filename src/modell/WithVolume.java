@@ -1,4 +1,4 @@
-package Modell;
+package modell;
 
 public interface WithVolume {
     double PI = 3.14;

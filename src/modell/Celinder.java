@@ -1,4 +1,4 @@
-package Modell;
+package modell;
 import static Lessons.MyUtils.getRandomFromRange;
 public class Celinder implements WithSurfaceArea,WithVolume {
     private int radius;
