@@ -18,9 +18,10 @@ public class HomeWork16 {
         }
 
        // Write a Java program to copy one array list into another.copyOf
-//        List<String> arrayListCopy = new ArrayList<String>(2);
-//        Collections.copy(arrayList,arrayListCopy);
-//        System.out.println(arrayListCopy);
+        List<String> arrayListCopy = new ArrayList<String>(2);
+        arrayListCopy.add("TT");
+        Collections.copy(arrayList,arrayListCopy);
+        System.out.println(arrayListCopy);
         ArrayList<String> arrayCopy2 = (ArrayList<String>) ((ArrayList<String>) arrayList).clone();
         System.out.println("Copy" + arrayCopy2);
         //Write a Java program to shuffle elements in a array list.
@@ -50,15 +51,17 @@ public class HomeWork16 {
         System.out.println(arrayListAll);
         //Write a Java program to empty an array list.
         arrayListAll.removeAll(arrayListAll);
+        arrayListAll.clear();
         System.out.println(arrayListAll);
         //Write a Java program to test an array list is empty or not.
-//        for (String array : arrayListAll) {
-//            if(array == null){
-//                System.out.println("Empty list");
-//            }else{
-//                System.out.println("Not empty");
-//            }
-//        }
+        arrayListAll.isEmpty();
+        for (String entry : arrayListAll) {
+            if(entry == null){
+                System.out.println("Empty list");
+            }else{
+                System.out.println("Not empty");
+            }
+        }
         System.out.println((((arrayListAll.isEmpty()))));
         //Write a Java program to trim the capacity of an array list the current list size.
         ((ArrayList<String>) arrayList).trimToSize();
