@@ -1,7 +1,7 @@
 package model;
 
 
-public class Circle extends AbstractShape implements Shape {
+public class Circle extends AbstractShape implements Shape, Comparable<Circle> {
 
     @Override
     public double getPerimetr() {
@@ -44,5 +44,11 @@ public class Circle extends AbstractShape implements Shape {
     @Override
     public int hashCode() {
         return side;
+    }
+
+
+    @Override
+    public int compareTo(Circle o) {
+        return (int) (this.getPerimetr() - o.getPerimetr());
     }
 }
