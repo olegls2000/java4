@@ -8,7 +8,6 @@ public class MyQueue<T> implements Queue<T> {
 
     private Object[] items = new Object[0];
 
-
     @Override
     public int size() {
         return items.length;
@@ -21,29 +20,65 @@ public class MyQueue<T> implements Queue<T> {
 
     @Override
     public boolean contains(Object o) {
-
+        for (Object item : items) {
+            if (item.equals(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
+    //[] -> [E1]
+
+
+    //[E1] -> [E2, E1]
+
     @Override
     public boolean add(T t) {
-        //TODO..
-        return false;
+        Object[] newItems = new Object[items.length + 1];
+        newItems[0] = t;
+        for (int i = 0; i < items.length; i++) {
+            newItems[i + 1] = items[i];
+        }
+        items = newItems;
+
+        return true;
     }
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        int indexToRemove = -1;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].equals(o)) {
+                indexToRemove = i;
+                break;
+            }
+        }
+        if (indexToRemove == -1) {
+            return false;
+        }
+        //indexToRemove = 2
+        //  [1, 8, 5, 9, 7] -> [1, 8, 9, 7]
+        Object[] newItems = new Object[items.length - 1];
+        for (int i = 0; i < indexToRemove; i++) {
+            newItems[i] = items[i];
+        }
+        for (int i = indexToRemove + 1; i < items.length; i++) {
+            newItems[i - 1] = items[i];
+        }
+        items = newItems;
+
+        return true;
     }
 
     @Override
     public void clear() {
-
+        items = new Object[0];
     }
 
     @Override
     public boolean offer(T t) {
-        return false;
+        return add(t);
     }
 
     @Override
@@ -107,5 +142,17 @@ public class MyQueue<T> implements Queue<T> {
     @Override
     public boolean retainAll(Collection<?> c) {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append('[');
+        for (Object item : items) {
+            stringBuilder.append(item.toString() + ", ");
+        }
+        stringBuilder.append(']');
+
+        return stringBuilder.toString();
     }
 }
