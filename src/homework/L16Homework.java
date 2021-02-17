@@ -7,11 +7,16 @@ import static utils.ListMethods.*;
 public class L16Homework {
     public static void main(String[] args)
             throws Exception {
-        List<String> arrayListAnimals = new ArrayList<>(); // first list
-        String[] animals = new String[] {"Cats", "Dogs", "Birds", "Fish", "Insects"};
+        List<Object> arrayListAnimals = new ArrayList<>(); // first list
+        Object[] animals = new Object[] {"Cats", "Dogs", "Birds", "Fish", "Insects"};
         arrayListAnimals.addAll(Arrays.asList(animals));
-        List<String> arrayListPeople = new ArrayList<>(); // second list
-        String[] people = new String[] {"John", "Mary", "Anna", "Fred", "Bob"}; // "John", "Mary", "Anna", "Fred", "Bob"
+
+        List<Number> arrayListNumbers = new ArrayList<>(); // second list
+        Number[] numbers = new Number[] {1, 2, 3, 4, 5};
+        arrayListAnimals.addAll(Arrays.asList(animals));
+
+        List<Object> arrayListPeople = new ArrayList<>(); // third list
+        Object[] people = new Object[] {"John", "Mary", "Anna", "Fred", "Bob"}; // "John", "Mary", "Anna", "Fred", "Bob"
         arrayListPeople.addAll(Arrays.asList(people));
 
         /*// 1
@@ -52,5 +57,8 @@ public class L16Homework {
                 (arrayListAnimals, 1, "Doggies"));
         // 14
         printAllElementsByPosition(arrayListAnimals);*/
+
+        /*// 2 IMPROVE (different types of lists)?
+        getListCopy(arrayListAnimals, arrayListNumbers);*/
     }
 }

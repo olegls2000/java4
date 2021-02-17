@@ -1,8 +1,6 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ListMethods {
 
@@ -13,7 +11,7 @@ public class ListMethods {
     }
 
     // 1 Write a Java program to search an element in an array list.
-    public static void getElementFromList(List<?> arrayList, String element) { // унифицировать
+    public static void getElementFromList(List<?> arrayList, Object element) { // унифицировать
         if (arrayList.contains(element)) {
             System.out.println("Element \"" + element + "\" is present in the current List.");
         }
@@ -44,7 +42,7 @@ public class ListMethods {
     // 5 Write a Java program to extract a portion of an array list.
     public static List<?> extractPortionOfList(List<?> list, int from, int to)
             throws Exception {
-        if (from < 0 || to > list.size()) {
+        if (from < 0 || to > list.size() || list.isEmpty()) {
             throw new Exception("Incorrect input!");
         }
         List<?> extractedList = list.subList(from, to);

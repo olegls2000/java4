@@ -5,6 +5,11 @@ public class Square extends AbstractShape {
         return 4 * side;
     }
 
+    @Override
+    public int compareTo(Circle o) {
+        return 0;
+    }
+
     public void printFromSquare(){
         System.out.println("Hello from Square!!!!!");
     }

@@ -2,17 +2,25 @@ package model;
 
 import utils.MyUtils;
 
+import static utils.MyUtils.getRandomFromRange;
+import static utils.MyUtils.getRandomFromRangeG;
+
 public class Student {
     public String name; // def null
     public String lastName; // def null
     public int age;     //def 0
+
+    public double getAverageGrade() {
+        return averageGrade;
+    }
+
     public double averageGrade;  //def 0.0
 
     public Student(String nameX, String lastNameX) {
         this.name = nameX;
         this.lastName = lastNameX;
-        this.age = MyUtils.getRandomFromRange(18, 65);  // [18, 65]
-        this.averageGrade = MyUtils.getRandomFromRange(2, 12);  //[2.0 , 12.0]
+        this.age = getRandomFromRange(18, 65);  // [18, 65]
+        this.averageGrade = getRandomFromRange(2, 12);  //[2.0 , 12.0]
     }
 
     public Student(String name, String lastName, int age, double averageGrade) {
@@ -25,4 +33,5 @@ public class Student {
     public void getOneYearOlder() {
         this.age++;
     }
+
 }

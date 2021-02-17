@@ -25,4 +25,6 @@ public abstract class AbstractShape {
     }
 
     public abstract double getPerimeter();
+
+    public abstract int compareTo(Circle o);
 }
