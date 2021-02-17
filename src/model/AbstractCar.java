@@ -7,6 +7,21 @@ import java.util.Date;
 
 public abstract class AbstractCar {
 
+    private Color color;
+
+    public Color getColor() {
+        return color;
+    }
+
+    public AbstractCar() {
+
+        color = Color.values()[2];
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     @NumberCheck(min = 1990, max = 2019)
     protected int year; //2010
 

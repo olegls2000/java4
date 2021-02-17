@@ -4,11 +4,14 @@ import function.HumanIvanSupplier;
 import function.MyAbstractClassF;
 import model.Human;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static utils.MyUtils.generateList;
 import static utils.MyUtils.getRandomFromRange;
@@ -72,12 +75,54 @@ public class L19Main {
             return t % 2 == 0;
         };
 
-        long evenCount =
-                integers.stream()
-                        .filter(evenPredicate)
-                        .count();
-        System.out.println("Even count = " + evenCount);
+        Stream<String> stream = integers.stream()
+                .filter(t -> t % 2 == 0)
+                .peek(t -> System.out.println("even: " + t))
+                .map(t -> t.toString());
 
+        stream.peek(t -> System.out.println(t));
+
+        //long count = stream.count();
+        //stream.count();
+        //System.out.println("Even count = " + count);
+
+        Set<String> strings =
+                generateList(10, 0, 5)
+                        .stream()
+                        .map(t -> t.toString())
+                        .collect(Collectors.toSet());
+
+
+        boolean has666 = generateList(100, 0, 800)
+                .stream()
+                .anyMatch(t -> t == 666);
+
+        Integer i = Integer.valueOf(10);
+        String iString = i.toString();
+        Integer iRestored = Integer.valueOf(iString);
+
+        final List<Integer> singleDigitList =
+                generateList(100, 0, 10)
+                        .stream()
+                        //.map(t -> "Hello" + t.toString())
+                        .map(Objects::toString)
+                        .filter(t -> t.length() == 1)
+                        //.peek(t -> System.out.println(t))
+                        .peek(System.out::println)
+                        //.map(t -> Integer.valueOf(t))
+                        .map(Integer::valueOf)
+                        .collect(Collectors.toList());
+
+
+
+
+
+        // stream
+        //map  i.toString()
+        //filter length  == 1
+        //map Integer.valueOf(iString);
+        // peek sout
+        //collect  (Collectors.toList());
 
     }
 
