@@ -1,5 +1,6 @@
 package function;
 
-public abstract class MyAbstractClassF {
-    public abstract void myAbstractMeth();
+public interface MyAbstractClassF {
+    void myAbstractMeth(String x);
+    //void myAbstractMethX();
 }
