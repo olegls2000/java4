@@ -2,10 +2,15 @@ package model;
 
 import annotation.NumberCheck;
 
-import java.time.*;
-import java.util.Date;
+import java.time.LocalDate;
+
+import static utils.MyUtils.getRandomFromRange;
 
 public abstract class AbstractCar {
+    protected final static int LOAD_RATIO = 15;
+    protected final static int AGE_RATIO = 8;
+    protected final static int TECH_STATE_RATIO = 100;
+    protected final static int PLACES_RATIO = 150;
 
     private Color color;
 
@@ -13,9 +18,21 @@ public abstract class AbstractCar {
         return color;
     }
 
-    public AbstractCar() {
+    public int getYear() {
+        return year;
+    }
 
-        color = Color.values()[2];
+    public int getAge(){
+        return LocalDate.now().getYear() - year;
+    }
+
+    protected int techState;
+
+    public AbstractCar() {
+        int randomColorIndex = getRandomFromRange(0, Color.values().length - 1);
+        color = Color.values()[randomColorIndex];
+        year = getRandomFromRange(1990, 2019);
+        techState = getRandomFromRange(1, 10);
     }
 
     public void setColor(Color color) {
